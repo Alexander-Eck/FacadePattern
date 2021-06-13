@@ -1,7 +1,7 @@
 # FacadePattern
 Java code and PlantUML diagrams that illustrate the "Facade" Design Pattern (+ Builder Pattern bonus)
 
-> This app was created with :heart: for a lecture at HWR Berlin, 22 June 2021.
+> This repo was created with :heart: for a lecture at HWR Berlin, 22 June 2021.
 > It's only purpose is to illustrate the "Facade" Design Pattern and a simple Java implementation.
 > This is not production code.
 
