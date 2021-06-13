@@ -1,0 +1,29 @@
+@startuml builder_notification
+skinparam dpi 300
+skinparam classAttributeIconSize 0
+hide empty members
+
+== 1. Create builder ==
+Client -> Builder: new Builder()
+activate Builder
+return builder
+== 2. Configure notification ==
+Client -> Builder: setParameterA()
+activate Builder
+Client -> Builder: ...()
+Client -> Builder: setParameterX()
+deactivate Builder
+== 3. Request notification ==
+Client -> Builder: build()
+activate Builder
+Builder -> Notification: new Notification()
+activate Notification
+Builder -> Notification: doSomeWork()
+deactivate Notification
+note over Builder, Notification #Ivory
+    //To Client, it is transparent when//
+    //Builder calls 'new Notification()'//
+    //or how it performs configuration//
+end note
+return **notification**
+@enduml

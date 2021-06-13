@@ -1,0 +1,41 @@
+@startuml bff
+!include <material/apple>
+!include <material/android>
+!include <material/monitor>
+!include <material/webhook>
+
+rectangle "<color:grey><$ma_monitor></color>\nWeb Client" as WebClient
+rectangle "Web BFF" as WebBFF
+rectangle "<color:grey><$ma_android></color>\nAndroid Client" as AndroidClient
+rectangle "Android BFF" as AndroidBFF
+rectangle "<color:grey><$ma_apple></color>\niOS Client" as iOSClient
+rectangle "iOS BFF" as iOSBFF
+rectangle "<color:grey><$ma_webhook></color>\n3rd Party Client" as 3rdPartyClient
+rectangle "3rd Party BFF" as 3rdPartyBFF
+
+rectangle "Service A" as ServiceA
+rectangle "Service B" as ServiceB
+rectangle "Service C" as ServiceC
+
+WebClient ..> WebBFF
+AndroidClient ..> AndroidBFF
+iOSClient ..> iOSBFF
+3rdPartyClient ..> 3rdPartyBFF
+
+WebBFF ..> ServiceA
+WebBFF ..> ServiceB
+WebBFF ..> ServiceC
+
+AndroidBFF ..> ServiceA
+AndroidBFF ..> ServiceB
+AndroidBFF ..> ServiceC
+
+iOSBFF ..> ServiceA
+iOSBFF ..> ServiceB
+iOSBFF ..> ServiceC
+
+3rdPartyBFF ..> ServiceA
+3rdPartyBFF ..> ServiceB
+3rdPartyBFF ..> ServiceC
+
+@enduml

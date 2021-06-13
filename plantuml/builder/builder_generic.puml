@@ -1,0 +1,29 @@
+@startuml builder_generic
+skinparam dpi 300
+skinparam classAttributeIconSize 0
+hide empty members
+
+== 1. Create a builder ==
+Client -> Builder: new Builder()
+activate Builder
+return builder
+== 2. Configure product ==
+Client -> Builder: setParameterA()
+activate Builder
+Client -> Builder: ...()
+Client -> Builder: setParameterX()
+deactivate Builder
+== 3. Request product ==
+Client -> Builder: build()
+activate Builder
+Builder -> Product: new Product()
+activate Product
+Builder -> Product: doSomeWork()
+deactivate Product
+note over Builder, Product #Ivory
+    //To Client, it is transparent when//
+    //Builder calls 'new Product()' and//
+    //how it performs requested configs//
+end note
+return **product**
+@enduml

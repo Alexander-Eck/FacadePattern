@@ -1,0 +1,26 @@
+@startuml facade_solution
+skinparam dpi 300
+skinparam classAttributeIconSize 0
+hide empty members
+
+class LoyaltyApp {
+    orderId
+}
+
+package "OrderInfo" {
+    class OrderInfoFacade #PaleGreen {
+        queryStatus(orderId)
+    }
+    class VehicleInfo
+    class FactoryInfo
+    abstract SalesChannelInfo
+    class ImporterInfo extends SalesChannelInfo
+    class DealerInfo extends SalesChannelInfo
+}
+
+LoyaltyApp ..> OrderInfoFacade
+OrderInfoFacade ..> VehicleInfo
+OrderInfoFacade ..> FactoryInfo
+OrderInfoFacade ..> SalesChannelInfo
+
+@enduml

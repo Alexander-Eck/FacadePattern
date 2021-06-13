@@ -1,0 +1,32 @@
+@startuml facade_problem
+skinparam dpi 300
+skinparam classAttributeIconSize 0
+hide empty members
+
+class LoyaltyApp {
+    orderId
+    vehicleId
+    queryOrderStatus()
+}
+
+package "OrderInfo" {
+    abstract SalesChannelInfo {
+        queryChannelStatus(vehicleId)
+    }
+    class ImporterInfo extends SalesChannelInfo
+    class DealerInfo extends SalesChannelInfo
+
+    class FactoryInfo {
+        queryStatus(vehicleId)
+    }
+
+    class VehicleInfo {
+        findVehicleId(orderId)
+    }
+}
+
+LoyaltyApp ..> VehicleInfo
+LoyaltyApp ..> FactoryInfo
+LoyaltyApp ..> SalesChannelInfo
+
+@enduml

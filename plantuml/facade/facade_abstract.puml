@@ -1,0 +1,32 @@
+@startuml facade_abstract
+skinparam dpi 300
+skinparam classAttributeIconSize 0
+hide empty members
+
+class Client
+
+package "SubSystem" {
+    class Facade
+    together {
+        class Class1 <<(C,business)>> #text:business
+        class Class2 <<(C,business)>> #text:business
+        class Class3 <<(C,business)>> #text:business
+    }
+    together {
+        class Class4 <<(C,business)>> #text:business
+        class Class5 <<(C,business)>> #text:business
+        class Class6 <<(C,business)>> #text:business
+
+    }
+}
+
+Client ..> Facade
+Facade ..> Class2
+Facade ..> Class3
+Facade ..> Class4
+Class1 <|-- Class3
+Class1 - Class2
+Class4 <|-- Class5
+Class4 <|-- Class6
+
+@enduml
